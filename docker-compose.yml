@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+
+  lt-app:
+    container_name: lt-app
+    build:
+        context: .
+    ports:
+      - 3075:80
+    volumes:
+      - ./:/app:cached
+    command: /bin/bash -c /run/web.sh
+
+  lt-db:
+    container_name: lt-db
+    image: mysql:8.0
+    restart: on-failure
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lucky_trip
+      MYSQL_USER: lucky
+      MYSQL_PASSWORD: lucky
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 10s
+      retries: 10
+    volumes:
+      - lt-datavolume:/var/lib/mysql
+    ports:
+      - "11191:3306"
+
+volumes:
+  lt-datavolume:
+
+networks:
+  default:
+    name: lt_default

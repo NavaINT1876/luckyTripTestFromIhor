@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "8641b483-b629-493e-a20c-54d40c39dad0",
+		"name": "LuckyTrip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3132001"
+	},
+	"item": [
+		{
+			"name": "Airports List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3075/airports?latitude=51.103375836038246&longitude=17.04332395959719",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3075",
+					"path": [
+						"airports"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "51.103375836038246"
+						},
+						{
+							"key": "longitude",
+							"value": "17.04332395959719"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View single Airport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3075/airports/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3075",
+					"path": [
+						"airports",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete single Airport",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3075/airports/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3075",
+					"path": [
+						"airports",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Airport",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"err\",\n    \"iata_code\": \"2e2\",\n    \"latitude\": 80.89745145,\n    \"longitude\": 100,\n    \"description\": \"The description field is required. The description field is required.The description field is required.\",\n    \"terms_and_conditions\": \"The description field is required. The description field is required.The description field is required.\",\n    \"name_translations\": {\"de\": \"FLUGHAFEN\", \"ru\": \"AEROPORT\"}\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3075/airports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3075",
+					"path": [
+						"airports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Airport",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"err444\",\n    \"iata_code\": \"2e2\",\n    \"latitude\": 80.89745145,\n    \"longitude\": 100,\n    \"description\": \"The description field is required. The description field is required.The description field is required.\",\n    \"terms_and_conditions\": \"The description field is required. The description field is required.The description field is required.\",\n    \"name_translations\": [\n        {\"language\": \"de\", \"text\": \"FLUGHAFEN123\"},\n        {\"language\": \"ru\", \"text\": \"AEROPORT123\"}\n    ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3075/airports/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3075",
+					"path": [
+						"airports",
+						"12"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
